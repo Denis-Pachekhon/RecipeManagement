@@ -21,7 +21,7 @@ import { MatListModule } from '@angular/material/list';
     LoginComponent,
     RegisterComponent,
     RecipesComponent,
-    RecipeDetailComponent,
+    RecipeDetailComponent, 
     RecipeEditComponent
   ],
   imports: [
