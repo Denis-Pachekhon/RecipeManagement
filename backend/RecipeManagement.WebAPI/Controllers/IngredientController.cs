@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
+using RecipeManagement.Domain.Services.Abstractions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,20 @@ namespace RecipeManagement.WebAPI.Controllers
     {
 
         private static readonly HttpClient client = new HttpClient();
+        private readonly IIngredientService _ingredientService;
+        private readonly IMapper _mapper;
+
+        public IngredientController(IIngredientService ingredientService, IMapper mapper)
+        {
+            _ingredientService = ingredientService;
+            _mapper = mapper;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetAllRecipes()
+        {
+            return Ok(await _ingredientService.GetIngredientsAsync());
+        }
 
         [HttpPost]
         public async Task<ActionResult> Post()

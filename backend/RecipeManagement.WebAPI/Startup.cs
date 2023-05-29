@@ -82,6 +82,8 @@ namespace RecipeManagement.WebAPI
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
+            services.AddScoped<IIngredientService, IngredientService>();
+            services.AddScoped<IIngredientRepository, IngredientRepository>();
 
             services.AddControllers().AddJsonOptions(options =>
             {

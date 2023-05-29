@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Recipe } from './models/models';
+import { Recipe, Ingredient } from './models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +35,10 @@ export class RecipeService {
 
   deleteRecipe(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+
+  getIngredientS() : Observable<Ingredient[]>{
+    var i = this.http.get<Ingredient[]>('https://localhost:5001/api/ingredient');
+    return i;
   }
 }

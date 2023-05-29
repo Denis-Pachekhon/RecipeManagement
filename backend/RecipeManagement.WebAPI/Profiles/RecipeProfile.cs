@@ -17,6 +17,8 @@ namespace RecipeManagement.WebAPI.Profiles
                 .ForMember(dest => dest.Ingredients, memberOptions: opt => opt.MapFrom(src => src.Ingredients))
                 .ForMember(dest => dest.Calories, memberOptions: opt => opt.MapFrom(src => src.Calories))
                 .ReverseMap();
+            CreateMap<Domain.Models.Ingredient, Ingredient>()
+               .ReverseMap();
         }
     }
 }

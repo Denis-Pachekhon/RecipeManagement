@@ -7,5 +7,23 @@ export interface Recipe {
   }
 
 export interface Ingredient {
-  
+  id : number,
+  name : string;
+  protein : number,
+  fats : number,
+  carbohydrates : number,
+  quantity : number
+}
+
+export interface RegisterViewModel {
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export interface UserManagerResponse {
+  message : string,
+  isSuccess : boolean,
+  errors : Array<string>,
+  expireDate : Date
 }
