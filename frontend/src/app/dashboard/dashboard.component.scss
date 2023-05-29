@@ -16,9 +16,9 @@
     color: black;
     font-size: 2rem;
     &-data {
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   }
 }
@@ -47,10 +47,6 @@
   }
 }
 
-.recipe-card {
-  margin-bottom: 1em;
-}
-
 .example-card {
   max-width: 800px;  /* Increased the width */
   margin: auto;
@@ -58,16 +54,17 @@
   overflow: hidden;
   position: relative;
   border-radius: 10px;
-  
+  padding-top: 0;
+
   img {
-    margin-top: 5px;  /* Adjust as needed */
+    margin-top: 0;
+  //   margin-top: 5px;  /* Adjust as needed */
   }
 
   mat-card-content {
     padding: 0px;
     min-height: 150px; 
     min-width: 150px; 
-
   }
 
   mat-card-actions {
@@ -88,4 +85,5 @@
 
 .row {
   justify-content: center;
+  --bs-gutter-y: 1.5rem;
 }
