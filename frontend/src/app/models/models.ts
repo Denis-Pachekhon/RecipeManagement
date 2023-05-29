@@ -25,12 +25,14 @@ export interface UserManagerResponse {
 export class Recipe {
   public id : number;
   public title: string;
+  public imagePath: string | null;
   public description: string;
   public ingredients: Ingredient[];
-  public calories: number;
+  public calories: number | null;
 
-  constructor(title: string, description: string, ingredients: Ingredient[]) {
+  constructor(title: string, description: string, imagePath : string, ingredients: Ingredient[]) {
     this.title = title;
+    this.imagePath = imagePath;
     this.description = description;
     this.ingredients = ingredients;
   }
