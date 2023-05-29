@@ -1,24 +1,107 @@
 .page {
-    color: white;
-    padding: 0 1rem;
-    background: #f1f5f9;
-    &__box {
-      min-height: 120px;
-      background: #1e293b;
-      margin: 0 -1rem;
-      font-size: 36px;
+  color: white;
+  padding: 0 1rem;
+  background: #f1f5f9;
+  &__box {
+    min-height: 120px;
+    background: #1e293b;
+    margin: 0 -1rem;
+    font-size: 36px;
+  }
+  &__content {
+    min-height: calc(100vh - 178px);
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: white;
+    color: black;
+    font-size: 2rem;
+    &-data {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
-    &__content {
-      min-height: calc(100vh - 178px);
-      border-radius: 10px;
-      margin-top: -2rem;
-      background: white;
-      color: black;
-      font-size: 2rem;
-      &-data {
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+  }
+}
+
+
+.pagination {
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  padding: 1em 0;
+  .page-item {
+    margin: 0 0.25em;
+    cursor: pointer;
+    .page-link {
+      color: #1e293b;
+      background-color: #f1f5f9;
+      border: 1px solid #1e293b;
+      &:hover {
+        background-color: #1e293b;
+        color: #f1f5f9;
+      }
+      &.active {
+        background-color: #1e293b;
+        border-color: #1e293b;
+        color: #f1f5f9;
       }
     }
   }
+}
+
+.example-card {
+  max-width: 800px;  /* Increased the width */
+  margin: auto;
+  transition: box-shadow .3s cubic-bezier(.25,.8,.25,1);
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  padding-top: 0;
+
+  img {
+    margin-top: 0;
+  //   margin-top: 5px;  /* Adjust as needed */
+  }
+
+  mat-card-content {
+    padding: 0px;
+    min-height: 150px; 
+    min-width: 150px; 
+  }
+
+  mat-card-actions {
+    font-size: 12px;
+    position: relative;
+    width: 100%;;
+    color: white;
+    justify-content: center;
+    height: 25px; /* Adjust as needed */
+    line-height: 20px; /* This should match the button height */
+    margin: 0;
+    margin-bottom: 50px;  /* Adjust as needed */
+    button {
+      font-weight: 600;
+      border: 1px solid transparent;
+      padding: 4px 14px;
+      background: #2c3344;
+      border-radius: 5px;
+      color: white;
+      transition: all 200ms ease-in-out;
+      &:hover {
+        border: 1px solid #2c3344;
+        color: #2c3344;
+        background: transparent;
+      }
+    }
+  }
+}
+
+.example-card:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.row {
+  justify-content: center;
+  --bs-gutter-y: 1.5rem;
+}

@@ -22,12 +22,15 @@ export class RecipeService {
     return i;
   }
 
-  getAllRecipes(): Observable<any[]> {
-    return this.http.get<any[]>(this.baseUrl);
+  getAllRecipes(): Observable<Recipe[]> {
+    let headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InBhY2hlaG9uLmRAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJjM2QzOWViOS1kMmUyLTQzMWQtODMyOC0zYmJlZmE4MjBiOTciLCJleHAiOjE2ODc5NDI3NTMsImlzcyI6Imh0dHA6Ly9haG1hZG1vemFmZmFyLm5ldCIsImF1ZCI6Imh0dHA6Ly9haG1hZG1vemFmZmFyLm5ldCJ9.Lq4oNLL31atqmEzVurwJsBG4zdNfmYlovZyAEoFhkxI');
+    return this.http.get<Recipe[]>(this.baseUrl, {headers : headers});
   }
 
   addRecipe(recipe: Recipe): Observable<any> {
-    return this.http.post(this.baseUrl, recipe);
+    let headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InBhY2hlaG9uLmRAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJjM2QzOWViOS1kMmUyLTQzMWQtODMyOC0zYmJlZmE4MjBiOTciLCJleHAiOjE2ODc5NDI3NTMsImlzcyI6Imh0dHA6Ly9haG1hZG1vemFmZmFyLm5ldCIsImF1ZCI6Imh0dHA6Ly9haG1hZG1vemFmZmFyLm5ldCJ9.Lq4oNLL31atqmEzVurwJsBG4zdNfmYlovZyAEoFhkxI');
+    
+    return this.http.post(this.baseUrl, recipe, {headers : headers});
   }
 
   updateRecipe(recipe: Recipe): Observable<any> {

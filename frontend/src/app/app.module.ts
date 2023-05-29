@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 
 import {AuthService} from './auth.service';
@@ -49,6 +50,7 @@ import { RecipeAddComponent } from './recipe-add/recipe-add.component';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
     MatDividerModule,

@@ -1,9 +1,25 @@
 <div class="container-fluid page">
-    <div class="d-flex page__box p-3 mt-2">Recipes</div>
-    <div class="page__content shadow p-3 position-relative">
-      <div class="page__content-data position-absolute text-center">
-        Recipes Content Goes Here
+  <div class="d-flex page__box p-3 mt-2">Recipes</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data text-center">
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-6 recipe-card" *ngFor="let recipe of getDisplayedRecipes()">
+          <mat-card class="example-card">
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <h4>{{recipe.title}}</h4>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button (click)="openRecipe(recipe.id)">Show details</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+      <div class="pagination">
+        <div class="page-item" *ngFor="let page of pages">
+          <div class="page-link" (click)="goToPage(page)">{{ page }}</div>
+        </div>
       </div>
     </div>
   </div>
-  
+</div>

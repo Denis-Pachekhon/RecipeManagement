@@ -1,11 +1,3 @@
-export interface Recipe {
-    id : number,
-    title: string;
-    description: string;
-    ingredients: Ingredient[];
-    calories: number;
-  }
-
 export interface Ingredient {
   id : number,
   name : string;
@@ -26,4 +18,20 @@ export interface UserManagerResponse {
   isSuccess : boolean,
   errors : Array<string>,
   expireDate : Date
+}
+/**
+ * Recipe blueprint
+ */
+export class Recipe {
+  public id : number;
+  public title: string;
+  public description: string;
+  public ingredients: Ingredient[];
+  public calories: number;
+
+  constructor(title: string, description: string, ingredients: Ingredient[]) {
+    this.title = title;
+    this.description = description;
+    this.ingredients = ingredients;
+  }
 }
