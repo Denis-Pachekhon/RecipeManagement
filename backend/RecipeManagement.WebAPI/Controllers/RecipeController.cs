@@ -46,6 +46,13 @@ namespace RecipeManagement.WebAPI.Controllers
             return Ok(await _recipeService.GetAllRecipesAsync());
         }
 
+        [HttpGet("User")]
+        public async Task<ActionResult> GetAllUserRecipes()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return Ok(await _recipeService.GetAllUserRecipesAsync(userId));
+        }
+
         [HttpPost]
         public async Task<ActionResult> AddRecipe(Recipe recipe)
         {

@@ -4,6 +4,7 @@ using RecipeManagement.Repository.DB;
 using RecipeManagement.Repository.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -78,6 +79,21 @@ namespace RecipeManagement.Repository.Repositories
             }
 
             return totalCalories;
+        }
+
+        public async Task<List<Recipe>> GetAllUserRecipesAsync(User user)
+        {
+            return await _context.Recipes
+                .Where(r => r.User == user)
+                .Select(r => new Recipe 
+                { 
+                    Id = r.Id,
+                    Title = r.Title,
+                    Description = r.Description,
+                    Calories = r.Calories,
+                    Ingredients = r.Ingredients,
+                    User = null
+                }).ToListAsync();
         }
     }
 }

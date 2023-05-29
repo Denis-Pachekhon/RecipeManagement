@@ -38,6 +38,14 @@ namespace RecipeManagement.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowMyAngularApp",
+                    builder => builder.WithOrigins("http://localhost:4200") // ?????? ?????? Angular ???????
+                        .AllowAnyMethod()
+                        .AllowAnyHeader());
+            });
+
             services.AddAutoMapper(typeof(UserProfile), typeof(Domain.Profiles.RecipeProfile), typeof(Profiles.RecipeProfile));
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -75,7 +83,11 @@ namespace RecipeManagement.WebAPI
             services.AddScoped<IRecipeService, RecipeService>();
             services.AddScoped<IRecipeRepository, RecipeRepository>();
 
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.IgnoreNullValues = true;
+                options.JsonSerializerOptions.WriteIndented = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -92,6 +104,8 @@ namespace RecipeManagement.WebAPI
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseCors("AllowMyAngularApp");
 
             app.UseEndpoints(endpoints =>
             {

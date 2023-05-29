@@ -57,5 +57,18 @@ namespace RecipeManagement.Domain.Services
         {
             await _recipeRepository.DeleteRecipeAsync(id);
         }
+
+        public async Task<List<Recipe>> GetAllUserRecipesAsync(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+            {
+                throw new InvalidOperationException("User not found");
+            }
+
+            var recipes = await _recipeRepository.GetAllUserRecipesAsync(user);
+
+            return _mapper.Map<List<Recipe>>(recipes);
+        }
     }
 }

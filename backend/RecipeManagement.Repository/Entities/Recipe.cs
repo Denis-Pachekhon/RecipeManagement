@@ -14,7 +14,7 @@ namespace RecipeManagement.Repository.Entities
 
         public User User { get; set; }
 
-        public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
+        public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
 
         public double Calories { get; set; }
     }

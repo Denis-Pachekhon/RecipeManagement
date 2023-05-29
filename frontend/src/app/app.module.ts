@@ -12,6 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatCardModule } from '@angular/material/card';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
@@ -19,6 +20,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+import {AuthService} from './auth.service';
+import {RecipeService} from './recipe.service'
+import { HttpClientModule } from '@angular/common/http';
+import { RecipeCardComponent } from './recipe-card/recipe-card.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +38,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     SidenavComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    RecipeCardComponent
   ],
   imports: [
     BrowserModule,
@@ -39,12 +47,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    HttpClientModule,
+    NgxPaginationModule,
     MatDividerModule,
     MatMenuModule,
+    MatCardModule,
     MatListModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    RecipeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

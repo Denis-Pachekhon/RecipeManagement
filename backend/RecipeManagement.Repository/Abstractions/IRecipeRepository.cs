@@ -10,6 +10,7 @@ namespace RecipeManagement.Repository.Abstractions
     {
         Task<Recipe> GetRecipeAsync(int id);
         Task<List<Recipe>> GetAllRecipesAsync();
+        Task<List<Recipe>> GetAllUserRecipesAsync(User user);
         Task AddRecipeAsync(Recipe recipe);
         Task UpdateRecipeAsync(Recipe recipe);
         Task DeleteRecipeAsync(int id);

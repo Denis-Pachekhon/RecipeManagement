@@ -7,13 +7,11 @@ namespace RecipeManagement.WebAPI.Contracts
 {
     public class Recipe
     {
-        public int Id { get; set; }
-
         public string Title { get; set; }
 
         public string Description { get; set; }
 
-        public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
+        public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
 
         public double Calories { get; set; }
     }

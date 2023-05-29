@@ -10,6 +10,7 @@ namespace RecipeManagement.Domain.Services.Abstractions
     {
         Task<Recipe> GetRecipeAsync(int id);
         Task<List<Recipe>> GetAllRecipesAsync();
+        Task<List<Recipe>> GetAllUserRecipesAsync(string userId);
         Task AddRecipeAsync(Recipe recipe, string userId);
         Task UpdateRecipeAsync(Recipe recipe);
         Task DeleteRecipeAsync(int id);

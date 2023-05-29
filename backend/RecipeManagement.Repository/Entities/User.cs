@@ -7,7 +7,7 @@ namespace RecipeManagement.Repository.Entities
 {
     public class User : IdentityUser
     {
-        public ICollection<Recipe> Recipes { get; set; }
+        public List<Recipe> Recipes { get; set; }
 
     }
 }
