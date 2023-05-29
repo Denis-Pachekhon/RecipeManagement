@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { Recipe } from './models/models';
+import { RecipeService } from './recipe.service';
 
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -20,6 +22,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'recipes', pathMatch: 'full' },
   { path: 'recipes', component: RecipesComponent },
   { path: 'mycookbook', component: DashboardComponent },
+  { path: 'recipe/:id', component: RecipeDetailComponent }
 ];
 
 @NgModule({

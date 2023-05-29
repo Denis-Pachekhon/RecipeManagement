@@ -7,5 +7,5 @@ export interface Recipe {
   }
 
 export interface Ingredient {
-  // Вам потрібно вказати поля для інгредієнтів відповідно до вашої моделі на сервері
+  
 }

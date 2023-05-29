@@ -169,7 +169,7 @@ namespace RecipeManagement.Repository.Migrations
                     b.Property<double>("Protein")
                         .HasColumnType("float");
 
-                    b.Property<double>("Quantity")
+                    b.Property<double?>("Quantity")
                         .HasColumnType("float");
 
                     b.Property<int?>("RecipeId")

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RecipeManagement.Repository.Entities;
+using System.Collections.Generic;
 using System.Text;
 
 namespace RecipeManagement.Domain.Models
@@ -11,7 +12,7 @@ namespace RecipeManagement.Domain.Models
 
         public string Description { get; set; }
 
-        public Repository.Entities.User User { get; set; }
+        public User User { get; set; }
 
         public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
 

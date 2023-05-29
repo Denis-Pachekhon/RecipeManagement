@@ -184,7 +184,7 @@ namespace RecipeManagement.Repository.Migrations
                     Protein = table.Column<double>(nullable: false),
                     Fats = table.Column<double>(nullable: false),
                     Carbohydrates = table.Column<double>(nullable: false),
-                    Quantity = table.Column<double>(nullable: false),
+                    Quantity = table.Column<double>(nullable: true),
                     RecipeId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>

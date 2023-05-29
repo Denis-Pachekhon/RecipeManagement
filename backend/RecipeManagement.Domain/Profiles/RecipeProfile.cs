@@ -10,6 +10,7 @@ namespace RecipeManagement.Domain.Profiles
         public RecipeProfile()
         {
             CreateMap<Repository.Entities.Recipe, Models.Recipe>().ReverseMap();
+            CreateMap<Repository.Entities.Ingredient, Models.Ingredient>().ReverseMap();
         }
     }
 }

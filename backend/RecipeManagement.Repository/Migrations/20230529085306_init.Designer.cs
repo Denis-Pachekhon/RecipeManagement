@@ -10,7 +10,7 @@ using RecipeManagement.Repository.DB;
 namespace RecipeManagement.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230522193847_init")]
+    [Migration("20230529085306_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -171,7 +171,7 @@ namespace RecipeManagement.Repository.Migrations
                     b.Property<double>("Protein")
                         .HasColumnType("float");
 
-                    b.Property<double>("Quantity")
+                    b.Property<double?>("Quantity")
                         .HasColumnType("float");
 
                     b.Property<int?>("RecipeId")

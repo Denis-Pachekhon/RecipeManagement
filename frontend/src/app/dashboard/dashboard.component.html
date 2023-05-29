@@ -2,27 +2,35 @@
   <div class="d-flex page__box p-3 mt-2">My Cookbook</div>
   <div class="page__content shadow p-3 position-relative">
     <div class="page__content-data position-absolute text-center">
-      <div class="row">
-        <div class="col-md-3" *ngFor="let recipe of recipes">
+      <div class="row justify-content-center">
+        <div class="col-md-4 col-sm-6 recipe-card" *ngFor="let recipe of getDisplayedRecipes()">
           <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>{{recipe.title}}</mat-card-title>
-              <mat-card-subtitle>Cooking Time:  mins</mat-card-subtitle>
-            </mat-card-header>
             <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
             <mat-card-content>
-              <p>
-                {{recipe.description}}
-              </p>
+                <h4>{{recipe.title}}</h4>
             </mat-card-content>
             <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
+                <button mat-button (click)="openRecipe(recipe.id)">Show details</button>
             </mat-card-actions>
           </mat-card>
+        </div>
+      </div>
+      <div class="pagination">
+        <div class="page-item" *ngFor="let page of pages">
+          <div class="page-link" (click)="goToPage(page)">{{ page }}</div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Пагинация -->
+<!--<div class="text-center">-->
+<!--  <nav aria-label="Page navigation">-->
+<!--    <ul class="pagination">-->
+<!--      <li class="page-item"ngFor="let pageNumber of getPageNumbers()">-->
+<!--        <a class="page-link" href="#" (click)="goToPage(pageNumber)">{{pageNumber}}</a>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </nav>-->
+<!--</div>-->
