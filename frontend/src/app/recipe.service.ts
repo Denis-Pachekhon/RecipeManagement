@@ -12,7 +12,8 @@ export class RecipeService {
   constructor(private http: HttpClient) { }
 
   getRecipe(id: number): Observable<Recipe> {
-    return this.http.get<Recipe>(`${this.baseUrl}/${id}`);
+    let headers = new HttpHeaders().set('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJFbWFpbCI6InBhY2hlaG9uLmRAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiJjM2QzOWViOS1kMmUyLTQzMWQtODMyOC0zYmJlZmE4MjBiOTciLCJleHAiOjE2ODc5NDI3NTMsImlzcyI6Imh0dHA6Ly9haG1hZG1vemFmZmFyLm5ldCIsImF1ZCI6Imh0dHA6Ly9haG1hZG1vemFmZmFyLm5ldCJ9.Lq4oNLL31atqmEzVurwJsBG4zdNfmYlovZyAEoFhkxI');
+    return this.http.get<Recipe>(`${this.baseUrl}/${id}`, {headers: headers});
   }
 
   getAllUserRecipes(): Observable<Recipe[]> {

@@ -9,6 +9,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { RecipeAddComponent } from './recipe-add/recipe-add.component';
 import { HomeComponent } from './home/home.component';
 // const routes: Routes = [
 //   { path: 'login', component: LoginComponent },
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'recipes', pathMatch: 'full' },
   { path: 'recipes', component: RecipesComponent },
   { path: 'mycookbook', component: DashboardComponent },
+  { path: 'recipe/add', component: RecipeAddComponent },
   { path: 'recipe/:id', component: RecipeDetailComponent }
 ];
 

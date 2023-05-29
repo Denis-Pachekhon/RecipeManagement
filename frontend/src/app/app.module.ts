@@ -26,6 +26,7 @@ import {AuthService} from './auth.service';
 import {RecipeService} from './recipe.service'
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeCardComponent } from './recipe-card/recipe-card.component';
+import { RecipeAddComponent } from './recipe-add/recipe-add.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { RecipeCardComponent } from './recipe-card/recipe-card.component';
     SidenavComponent,
     HomeComponent,
     DashboardComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    RecipeAddComponent
   ],
   imports: [
     BrowserModule,
