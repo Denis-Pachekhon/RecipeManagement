@@ -28,26 +28,29 @@ namespace RecipeManagement.Repository.Repositories
             return await _context.Recipes.ToListAsync();
         }
 
-        public async Task<Recipe> AddRecipeAsync(Recipe recipe)
+        public async Task AddRecipeAsync(Recipe recipe)
         {
             var calories = await CalculateCaloriesAsync(recipe);
             recipe.Calories = calories;
 
             await _context.Recipes.AddAsync(recipe);
             await _context.SaveChangesAsync();
-
-            return recipe;
         }
 
-        public async Task<Recipe> UpdateRecipeAsync(Recipe recipe)
+        public async Task UpdateRecipeAsync(Recipe recipe)
         {
-            var calories = await CalculateCaloriesAsync(recipe);
-            recipe.Calories = calories;
+            var recipeToUpdate = await _context.Recipes.FindAsync(recipe.Id);
+            if (recipeToUpdate != null)
+            {
+                recipeToUpdate.Ingredients = recipe.Ingredients;
+                recipeToUpdate.Title = recipe.Title;
+                recipeToUpdate.Description = recipe.Description;
+                var calories = await CalculateCaloriesAsync(recipeToUpdate);
+                recipeToUpdate.Calories = calories;
 
-            _context.Recipes.Update(recipe);
-            await _context.SaveChangesAsync();
-
-            return recipe;
+                _context.Recipes.Update(recipeToUpdate);
+                await _context.SaveChangesAsync();
+            }
         }
 
         public async Task DeleteRecipeAsync(int id)

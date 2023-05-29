@@ -35,7 +35,7 @@ namespace RecipeManagement.Domain.Services
             return _mapper.Map<List<Recipe>>(result);
         }
 
-        public async Task<Recipe> AddRecipeAsync(Recipe recipe, string userId)
+        public async Task AddRecipeAsync(Recipe recipe, string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
@@ -45,14 +45,12 @@ namespace RecipeManagement.Domain.Services
 
             recipe.User = user;
 
-            var result = await _recipeRepository.AddRecipeAsync(_mapper.Map<Repository.Entities.Recipe>(recipe));
-            return _mapper.Map<Recipe>(result);
+            await _recipeRepository.AddRecipeAsync(_mapper.Map<Repository.Entities.Recipe>(recipe));
         }
 
-        public async Task<Recipe> UpdateRecipeAsync(Recipe recipe)
+        public async Task UpdateRecipeAsync(Recipe recipe)
         {
-            var result = await _recipeRepository.UpdateRecipeAsync(_mapper.Map<Repository.Entities.Recipe>(recipe));
-            return _mapper.Map<Recipe>(result);
+            await _recipeRepository.UpdateRecipeAsync(_mapper.Map<Repository.Entities.Recipe>(recipe));
         }
 
         public async Task DeleteRecipeAsync(int id)

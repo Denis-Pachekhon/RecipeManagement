@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace RecipeManagement.WebAPI.Controllers
@@ -48,25 +50,20 @@ namespace RecipeManagement.WebAPI.Controllers
         public async Task<ActionResult> AddRecipe(Recipe recipe)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var newRecipe = await _recipeService.AddRecipeAsync(_mapper.Map<Domain.Models.Recipe>(recipe), userId);
+            await _recipeService.AddRecipeAsync(_mapper.Map<Domain.Models.Recipe>(recipe), userId);
 
-            return Ok(newRecipe);
+            return Ok();
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateRecipe(int id, Recipe recipe)
+        [HttpPut]
+        public async Task<IActionResult> UpdateRecipe([FromBody]Recipe recipe)
         {
-            if (id != recipe.Id)
-            {
-                return BadRequest();
-            }
-
             await _recipeService.UpdateRecipeAsync(_mapper.Map<Domain.Models.Recipe>(recipe));
 
             return Ok();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public async Task<IActionResult> DeleteRecipe(int id)
         {
             await _recipeService.DeleteRecipeAsync(id);
