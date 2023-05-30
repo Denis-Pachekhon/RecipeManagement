@@ -15,7 +15,7 @@
   margin-top: -2rem;
   background: white;
   color: black;
-  font-size: 2rem;
+  font-size: 1rem;
   img {
     width: 100%;
     max-width: 600px;
@@ -29,6 +29,15 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.wrapper {
+  display: flex;
+  gap: 3rem;
+}
+
+.description {
+  width: 100%;
 }
 
 .ingredients-list {

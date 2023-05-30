@@ -1,9 +1,11 @@
 <div class="container-fluid page">
     <div class="d-flex page__box p-3 mt-2">{{recipe?.title}}</div>
     <div class="page__content shadow p-3 position-relative">
-      <div class="page__content-data text-center">
-        <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-        <p>{{recipe?.description}}</p>
+      <div class="page__content-data">
+        <div class="wrapper">
+          <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+          <p class="description">{{recipe?.description}}</p>
+        </div>
         <ul class="ingredients-list text-center">
           <li *ngFor="let ingredient of recipe?.ingredients">
             {{ingredient.name}} - {{ingredient.quantity}}
