@@ -1,6 +1,4 @@
 import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { Recipe } from '../models/models';
 
 @Component({
   selector: 'searchbar',
@@ -10,26 +8,25 @@ import { Recipe } from '../models/models';
 export class SearchbarComponent implements OnInit {
   @Input() recipes:any = "";
 
-  search = "";
-
   newRecipes:any = [];
 
-  recipeSearch:FormGroup = new FormGroup({
-    "search": new FormControl(this.search)
-  })
+  searchRecipe:string = ""
 
-  constructor() { 
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
-  @Output() sendNewRecipes = new EventEmitter<{ newRecipes: any }>();
+  @Output() searchChange = new EventEmitter<any>();
 
-  onSubmit() {
-    console.log("submit check", this.recipes);
-    console.log('search', this.recipeSearch.value("search"));
-    console.log("new", this.newRecipes);
-    this.sendNewRecipes.emit({ newRecipes: this.newRecipes });
+  onSearchChange(model: any) {
+    this.newRecipes = this.recipes.filter((el) => {
+      if(model === "") {
+        return el;
+      } else if (el.title.includes(model)) {
+        return el;
+      };
+    });
+    if(model === "") {this.newRecipes = false}
+    this.searchChange.emit(this.newRecipes);
   }
 }

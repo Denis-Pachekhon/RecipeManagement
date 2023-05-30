@@ -23,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchbarComponent } from './searchbar/searchbar.component';
+import { FormsModule } from '@angular/forms';
 
 import {AuthService} from './auth.service';
 import {RecipeService} from './recipe.service'
@@ -36,7 +37,7 @@ import { RecipeAddComponent } from './recipe-add/recipe-add.component';
     LoginComponent,
     RegisterComponent,
     RecipesComponent,
-    RecipeDetailComponent, 
+    RecipeDetailComponent,
     RecipeEditComponent,
     HeaderComponent,
     SidenavComponent,
@@ -59,7 +60,8 @@ import { RecipeAddComponent } from './recipe-add/recipe-add.component';
     MatMenuModule,
     MatCardModule,
     MatListModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [
     AuthService,

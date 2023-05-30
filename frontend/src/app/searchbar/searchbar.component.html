@@ -1,4 +1,4 @@
-<form [formGroup]="recipeSearch" (ngSubmit)="onSubmit()" class="searchbar">
-  <input type="text" class="form-control" [formControlName]="search" placeholder="Search Recipe">
-  <button type="submit" class="btn">Search</button>
-</form>
+<div class="searchbar">
+  <input type="text" class="form-control" [ngModel]="searchRecipe" (ngModelChange)="onSearchChange($event)" placeholder="Search Recipe">
+  <button type="button" class="btn">Search</button>
+</div>

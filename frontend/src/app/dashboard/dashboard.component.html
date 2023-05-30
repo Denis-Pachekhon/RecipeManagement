@@ -1,7 +1,7 @@
 <div class="container-fluid page">
   <div class="d-flex page__box p-3 mt-2">
     <div>My Cookbook</div>
-    <searchbar [recipes]="recipes" (sendNewRecipes)=getNewRecipes($event)></searchbar>
+    <searchbar [recipes]="recipes" (searchChange)=getNewRecipes($event)></searchbar>
   </div>
   <div class="page__content shadow p-3 position-relative">
     <div class="page__content-data text-center">

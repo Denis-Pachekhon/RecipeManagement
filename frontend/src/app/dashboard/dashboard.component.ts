@@ -12,6 +12,8 @@ export class DashboardComponent implements OnInit {
 
   recipes: Recipe[] = [];
 
+  staticRecipes = [];
+
   currentPage = 1;
   pageSize = 3; // Change this to control the number of recipes per page
   pages: number[] = [];
@@ -22,6 +24,7 @@ export class DashboardComponent implements OnInit {
     this.recipeService.getAllUserRecipes().subscribe(
       data => {
         this.recipes = data;
+        this.staticRecipes = data;
         this.calculatePages();
       },
       error => {
@@ -49,9 +52,11 @@ export class DashboardComponent implements OnInit {
     return this.recipes.slice(start, end);
   }
 
-  getNewRecipes(eventData: { newRecipes: any }) {
-    console.log('event', eventData.newRecipes)
-    this.recipes = eventData.newRecipes
-    console.log('this new', this.recipes)
+  getNewRecipes(newRecipes) {
+    if(newRecipes === false) {
+      this.recipes = this.staticRecipes;
+    } else {
+      this.recipes = newRecipes;
+    }
   }
 }
