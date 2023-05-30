@@ -22,6 +22,7 @@ import { MatListModule } from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 import {AuthService} from './auth.service';
 import {RecipeService} from './recipe.service'
@@ -42,7 +43,8 @@ import { RecipeAddComponent } from './recipe-add/recipe-add.component';
     HomeComponent,
     DashboardComponent,
     RecipeCardComponent,
-    RecipeAddComponent
+    RecipeAddComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,

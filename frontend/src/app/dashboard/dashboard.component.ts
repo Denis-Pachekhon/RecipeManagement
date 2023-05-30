@@ -48,4 +48,10 @@ export class DashboardComponent implements OnInit {
     const end = start + this.pageSize;
     return this.recipes.slice(start, end);
   }
+
+  getNewRecipes(eventData: { newRecipes: any }) {
+    console.log('event', eventData.newRecipes)
+    this.recipes = eventData.newRecipes
+    console.log('this new', this.recipes)
+  }
 }
