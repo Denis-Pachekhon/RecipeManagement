@@ -58,5 +58,6 @@ export class DashboardComponent implements OnInit {
     } else {
       this.recipes = newRecipes;
     }
+    this.calculatePages();
   }
 }

@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class RecipesComponent implements OnInit {
   recipes: Recipe[] = [];
+  staticRecipes = [];
 
   currentPage = 1;
   pageSize = 3; // Change this to control the number of recipes per page
@@ -21,6 +22,7 @@ export class RecipesComponent implements OnInit {
     this.recipeService.getAllRecipes().subscribe(
       data => {
         this.recipes = data;
+        this.staticRecipes = data;
         this.calculatePages();
       },
       error => {
@@ -46,5 +48,14 @@ export class RecipesComponent implements OnInit {
     const start = (this.currentPage - 1) * this.pageSize;
     const end = start + this.pageSize;
     return this.recipes.slice(start, end);
+  }
+
+  getNewRecipes(newRecipes) {
+    if(newRecipes === false) {
+      this.recipes = this.staticRecipes;
+    } else {
+      this.recipes = newRecipes;
+    }
+    this.calculatePages();
   }
 }
