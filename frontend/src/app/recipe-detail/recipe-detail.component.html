@@ -4,7 +4,7 @@
       <div class="page__content-data text-center">
         <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
         <p>{{recipe?.description}}</p>
-        <ul class="ingredients-list">
+        <ul class="ingredients-list text-center">
           <li *ngFor="let ingredient of recipe?.ingredients">
             {{ingredient.name}} - {{ingredient.quantity}}
           </li>
