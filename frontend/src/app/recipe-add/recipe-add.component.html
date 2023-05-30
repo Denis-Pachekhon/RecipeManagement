@@ -14,7 +14,7 @@
                     <div class="row">
                       <div class="col-xs-12">
                         <div class="form-group">
-                          <label for="title">Title</label>
+                          <label class="mt-0" for="title">Title</label>
                           <input formControlName="title" type="text" class="form-control" id="title" placeholder="Title">
                         </div>
                       </div>
@@ -54,14 +54,16 @@
                     </div>
                     <div class="col-xs-12 margin-top" formArrayName="ingredients">
                       <div class="row" *ngFor="let ingredient of recipeEditForm.get('ingredients').controls;let i = index" [formGroupName]="i">
-                        <div class="col-xs-8 margin mt-3">
-                          <!-- <input class="form-control" type="text" formControlName="name"> -->
-                          <select formControlName="name" id="name">
-                              <option *ngFor="let ingredient of ingredients" [value]="ingredient.id">{{ingredient.name}}</option>
-                          </select>
-                        </div>
-                        <div class="col-xs-2 margin">
-                          <input class="form-control" type="number" formControlName="quantity">
+                        <div class="ingredients-wrapper">
+                          <div class="col-xs-8 margin">
+                            <!-- <input class="form-control" type="text" formControlName="name"> -->
+                            <select formControlName="name" id="name" class="form-control ingredients-name">
+                                <option *ngFor="let ingredient of ingredients" class="form-control" [value]="ingredient.id">{{ingredient.name}}</option>
+                            </select>
+                          </div>
+                          <div class="col-xs-2 margin ingredients-quantity">
+                            <input class="form-control" type="number" formControlName="quantity">
+                          </div>
                         </div>
                         <div class="col-xs-2 margin">
                           <button type="button" class="btn btn-danger" (click)="deleteIngredient(i)">Delete</button>

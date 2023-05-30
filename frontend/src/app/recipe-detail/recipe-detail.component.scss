@@ -1,5 +1,4 @@
-
-  .page {
+.page {
   color: white;
   padding: 0 1rem;
   background: #f1f5f9;
@@ -17,6 +16,13 @@
   background: white;
   color: black;
   font-size: 2rem;
+  img {
+    width: 100%;
+    max-width: 600px;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+  }
 }
 .page__content-data {
   top: 50%;
