@@ -32,12 +32,18 @@
 }
 
 .wrapper {
+  align-self: flex-start;
   display: flex;
   gap: 3rem;
+  @media (width < 1100px) {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 .description {
   width: 100%;
+  flex-grow: 1;
 }
 
 .ingredients-list {
